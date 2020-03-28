@@ -31,21 +31,24 @@ function getRandomQuote(quoteList) {
 /***
  * `printQuote` function
 ***/
+let HTML;
 function printQuote() {
   var quoteOBJ = getRandomQuote(quotes);
   let HTML = '<p class="quote">'+quoteOBJ.Quote+'</p>';
   HTML+= '<p class="source">'+quoteOBJ.Source;
-  if(quotes.Citation !== undefined) {
-    HTML+= '<span class="citation">'+quoteOBJ.Citation+'</span>';
+  if(quoteOBJ.Citation !== undefined) {
+    HTML+= '<span class="citation">' + quoteOBJ.Citation + '</span>';
   }
-    if(quotes.Year !== undefined) {
-      HTML+='<span class="year">'+quoteOBJ.Year+'</span>';
+    if(quoteOBJ.Year !== undefined) {
+      HTML+='<span class="year">'+ quoteOBJ.Year +'</span>';
   }
     HTML+='</p>';
-return HTML;
+document.getElementById('quote-box').innerHTML = HTML;
 };
 
-document.getElementById('quote-box').innerHTML = printQuote();
+
+
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
